@@ -7,7 +7,7 @@ import unittest
 
 class BaseTestCase(unittest.TestCase):
     def setUp(self):
-        service = Service(r'')    # Add the path to your local installation of Google Chrome Driver
+        service = Service(r'PATH_TO_GOOGLE_CHROME_DRIVER')   # Add the path to your local installation of Google Chrome Driver
         self.driver = webdriver.Chrome(service=service)
         self.driver.maximize_window()
 
