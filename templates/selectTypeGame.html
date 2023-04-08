@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Type Of Game</title>
+<div class="flame"></div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="{{url_for('static', filename='css/game_time.css')}}">
+
+{% endblock %}
+
+{% block body %}
+
+<div class="firstText">Hmm.. I think I want to play a..</div>
+
+<button class="buttonQuiz">
+  <span class="buttonQuiz-text">Quiz</span>
+</button>
+
+<button class="buttonGuess">
+  <a href="/sign_up" class="buttonGuess-text">Guess </a>
+
+</button>
+<div class="logo-image"></div>
+
+
+
+
+<style>
+
+</style>
+{% endblock %}

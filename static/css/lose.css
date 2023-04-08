@@ -1,0 +1,40 @@
+body {
+    background-image: url("https://wallpaperset.com/w/full/b/e/9/38915.jpg");
+    font-family: Arial, sans-serif;
+    background-size: cover;
+}
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    text-align: center;
+}
+h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #d90429;
+}
+p {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #d90429;
+}
+button {
+    background-color: #d90429;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+button:hover {
+    background-color: #f2f2f2;
+    color: #d90429;
+    border: 2px solid #d90429;
+}
+
+.menu{
+    background-color: grey;
+}

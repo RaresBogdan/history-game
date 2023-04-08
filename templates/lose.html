@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/lose.css')}}">
+<title>HistoryGame - You lost!</title>
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+		<h1>Sorry, you lost!</h1>
+		<p>You were unable to complete the History Game challenge.</p>
+		<button onclick="window.location.href='/guessing_game/{{period}}'">Try Again</button>
+        <button onclick="window.location.href='/select_period'" class="menu">Pick another period</button>
+	</div>
+{% endblock %}

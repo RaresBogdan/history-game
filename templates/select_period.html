@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block head %}
+
+<title>Time epochs</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="{{url_for('static', filename='css/game_period.css')}}">
+<script src="/templates/game_period.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% endblock %}
+{% block body %}
+
+<div class="grid-container">
+  <a href="/guessing_game/prehistory" class="image">
+      <img src="{{url_for('static', filename='images/resizeP0.jpg')}}" >
+      <button id="buttonPre" class="buttonPre btn">
+          PREHISTORY
+          <audio id="audioPre">
+          <source src="/static/css/sound.mp3" type="audio/mpeg">
+        </audio>
+      </button>
+  </a>
+  <a href="/guessing_game/ancient history" class="image">
+      <img src="{{url_for('static', filename='images/resizeP2.0.jpg')}}">
+      <button id="buttonAncient" class="buttonAncient btn">
+          ANCIENT HISTORY
+          <audio id="audioAncient">
+          <source src="/static/css/sound.mp3" type="audio/mpeg">
+        </audio>
+      </button>
+  </a>
+  <a href="/guessing_game/post-classical history" class="image">
+      <img src="{{url_for('static', filename='images/resizeP3.0.jpg')}}">
+      <button id="buttonPCH" class="buttonPCH btn">
+          POST-CLASSICAL HISTORY
+          <audio id="audioPCH">
+          <source src="/static/css/sound.mp3" type="audio/mpeg">
+        </audio>
+      </button>
+  </a>
+  <a href="/guessing_game/modern history" class="image">
+      <img src="{{url_for('static', filename='images/resizeP4.1.jpg')}}">
+      <button id="buttonModern" class="buttonModern btn">
+          MODERN HISTORY
+          <audio id="audioModern">
+          <source src="/static/css/sound.mp3" type="audio/mpeg">
+        </audio>
+      </button>
+  </a>
+</div>
+
+<script>
+var buttonPre = document.getElementById("buttonPre");
+var buttonAncient = document.getElementById("buttonAncient");
+var buttonPCH = document.getElementById("buttonPCH");
+var buttonModern = document.getElementById("buttonModern");
+
+var audioPre = document.getElementById("audioPre");
+var audioAncient = document.getElementById("audioAncient");
+var audioPCH = document.getElementById("audioPCH");
+var audioModern = document.getElementById("audioModern");
+
+buttonPre.addEventListener("click", function(event) {
+  event.preventDefault();
+  audioPre.play();
+  audioPre.addEventListener("ended", function() {
+    window.location.assign("/guessing_game/prehistory")
+  });
+});
+
+buttonAncient.addEventListener("click", function(event) {
+  event.preventDefault();
+  audioAncient.play();
+  audioAncient.addEventListener("ended", function() {
+    window.location.assign("/guessing_game/ancient history")
+  });
+});
+
+buttonPCH.addEventListener("click", function(event) {
+  event.preventDefault();
+  audioPCH.play();
+  audioPCH.addEventListener("ended", function() {
+    window.location.assign("/guessing_game/post-classical history")
+  });
+});
+
+buttonModern.addEventListener("click", function(event) {
+  event.preventDefault();
+  audioModern.play();
+  audioModern.addEventListener("ended", function() {
+    window.location.assign("/guessing_game/modern history")
+  });
+});
+
+</script>
+<style>
+
+</style>
+{% endblock %}

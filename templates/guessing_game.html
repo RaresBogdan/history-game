@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/guessing_game.css')}}">
+
+<title>Guessing Game</title>
+
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+
+        <div class="background"></div>
+        <div class="hint-img">
+            <div class="img-frame">
+                <img src="{{img_link}}" alt="Sign Up Image">
+            </div>
+        </div>
+        <div class="hints">
+            <div class="hint-box">
+                    <a onclick="getAnotherHint();" class="button button--pen">
+                    <div class="button__wrapper">
+                        <span class="button__text">HINT</span>
+                    </div>
+                    <div class="characterBox">
+                        <div class="character wakeup">
+                            <div class="character__face"></div>
+                            <div class="charactor__face2"></div>
+                        </div>
+                        <div class="character wakeup">
+                            <div class="character__face"></div>
+                            <div class="charactor__face2"></div>
+                        </div>
+                        <div class="character">
+                            <div class="character__face"></div>
+                            <div class="charactor__face2"></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <form>
+                <select name="answer_select" id="select_answer" multiple required>
+                    {% for answer in  answers%}
+                        <option style="white-space: pre-wrap;" value="{{answer[3:].strip()}}" >{{answer[3:]|safe}}</option>
+                    {% endfor %}
+                </select>
+                <a onclick="submitAnswer()" class="button button--hoo">
+                    <div class="button__wrapper">
+                        <span class="button__text">SUBMIT</span>
+                    </div>
+                    <div class="characterBox">
+                        <div class="character wakeup">
+                            <div class="character__face"></div>
+                            <div class="charactor__face2"></div>
+                            <div class="charactor__body"></div>
+                        </div>
+                        <div class="character wakeup">
+                            <div class="character__face"></div>
+                            <div class="charactor__face2"></div>
+                            <div class="charactor__body"></div>
+                        </div>
+                        <div class="character">
+                            <div class="character__face"></div>
+                            <div class="charactor__face2"></div>
+                            <div class="charactor__body"></div>
+                        </div>
+                    </div>
+                </a>
+            </form>
+            <div class="hint-content" id="hints">
+            </div>
+        </div>
+        <div class="companion-img">
+            {% if period == "prehistory" %}
+            <img src="{{url_for('static', filename='images/neanderthal.png')}}" alt="Companion Image">
+            <style>
+                .background{
+                    background-image: url("{{url_for('static', filename='images/prehistory.jpg')}}");
+                }
+            </style>
+            {% elif period == "ancient history" %}
+            <img src="{{url_for('static', filename='images/cleopatra.png')}}" alt="Companion Image">
+            <style>
+                .background{
+                    background-image: url("{{url_for('static', filename='images/ancient-history.jpg')}}");
+                }
+            </style>
+            {% elif period == "post-classical history" %}
+            <img src="{{url_for('static', filename='images/genghis_khan.png')}}" alt="Companion Image">
+            <style>
+                .background{
+                    background-image: url("{{url_for('static', filename='images/post-classical.jpg')}}");
+                }
+            </style>
+            {% elif period == "modern history" %}
+            <img src="{{url_for('static', filename='images/companion.png')}}" alt="Companion Image">
+            <style>
+                .background{
+                    background-image: url("{{url_for('static', filename='images/modern_history.jpg')}}");
+                }
+            </style>
+            {% endif %}
+        </div>
+    </div>
+    <p id="demo"></p>
+    <script>
+        var hints = [], index = 0;
+
+        {% for hint in hints %}
+        hints[index] = '{{hint | tojson | safe }}';
+        hints[index] = hints[index].replaceAll('"', '');
+        index += 1;
+        {% endfor %}
+
+        index = 0
+
+        document.getElementById("demo").innerHTML = '{{correct_answer[3:]}}'
+
+         function getAnotherHint(){
+            if(index<5){
+                const newHint = document.createElement("p");
+                const newContent = document.createTextNode(hints[index]);
+                const element = document.getElementById("hints");
+
+                newHint.appendChild(newContent);
+                element.appendChild(newHint);
+                index += 1;
+            }
+        }
+
+        function submitAnswer(){
+            var yourAnswer = document.getElementById("select_answer").value;
+            if (yourAnswer != "") {
+                var correct_answer = '{{correct_answer[3:]}}'
+                window.location.assign("/submit_guess/" + yourAnswer + "/" + correct_answer + "/" + index + "/" + '{{period}}')
+            }
+        }
+    </script>
+{% endblock %}

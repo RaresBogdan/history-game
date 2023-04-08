@@ -1,0 +1,41 @@
+body {
+    background-image: url("https://cdn.wallpapersafari.com/34/45/zSO3j4.jpg");
+    font-family: Arial, sans-serif;
+    background-size: cover;
+}
+.container {
+    margin: 0 auto;
+    padding: 50px 20px;
+    text-align: center;
+}
+h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #003049;
+}
+p {
+    font-size: 24px;
+    font-weight:500;
+
+    margin-bottom: 30px;
+    color: #003049;
+}
+button {
+    background-color: #003049;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+button:hover {
+    background-color: #f2f2f2;
+    color: #003049;
+    border: 2px solid #003049;
+}
+
+.menu{
+    background-color: grey;
+}

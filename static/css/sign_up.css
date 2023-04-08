@@ -1,0 +1,75 @@
+.signup-form {
+    width: 40%;
+    padding: 10px 5% 0 5%;
+    background-color: #FFFFFF;
+}
+.img-div{
+    width:50%;
+}
+
+.signup-form h1 {
+    text-align: center;
+    margin-top:100px;
+    margin-bottom: 50px;
+}
+.signup-form .form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+.signup-form .form-control {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 2px;
+    background-color: #f2f2f2;
+    margin-top:3.5px;
+}
+.signup-form .form-control:focus {
+    z-index: 2;
+}
+.signup-form .form-group i {
+    position: absolute;
+    top: 29px;
+    right: 10px;
+    font-size: 18px;
+    color: #ccc;
+}
+.signup-form .form-group label{
+    font-size: 14px;
+    font-weight:500;
+}
+.signup-form .btn {
+    display: block;
+    margin:auto;
+    width: 40%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #29384A;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+.signup-form .btn:hover {
+    background-color: #45a049;
+}
+img{
+    width: 100%;
+}
+.signup-form .logo-div{
+    width:100%;
+    display:block;
+}
+.signup-form .logo-div img{
+    height:70px;
+    width:auto;
+}
+.signup-form .already-have-account{
+    font-size: 15px;
+    font-weight:500;
+    text-align: center;
+    color: #4D5959;
+}
+.signup-form p a{
+    text-decoration: none;
+}

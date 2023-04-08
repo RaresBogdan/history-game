@@ -1,0 +1,7 @@
+#Python==3.10.6
+flask==2.2.2
+flask-SQLAlchemy==3.0.3
+openai==0.26.5
+bcrypt==4.0.1
+requests~=2.28.2
+selenium~=4.8.3

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/win.css')}}">
+<title>HistoryGame - You Won!</title>
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1>Congratulations, you won!</h1>
+		<p>You successfully completed the HistoryGame challenge using {{hints}} hints.</p>
+		<button onclick="window.location.href='/guessing_game/{{period}}'">Play Again</button>
+		<button onclick="window.location.href='/select_period'" class="menu">Pick another period</button>
+	</div>
+{% endblock %}
+
